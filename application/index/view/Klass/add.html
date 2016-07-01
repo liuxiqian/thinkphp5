@@ -1,0 +1,13 @@
+{extend name="base"/}
+{block name="body"}
+<form action="save" method="post">
+    <label>name:</label><input type="text" name="name" />
+    <label>teacher:</label>
+    <select name="user_id" id="user">
+    {volist name="users" id="user"}
+        <option value="{$user->id}">{$user->name}</option>
+    {/volist}
+    </select>
+    <button type="submit">Submit</button>
+</form>
+{/block}

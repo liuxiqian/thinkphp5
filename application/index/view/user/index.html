@@ -1,0 +1,36 @@
+{extend name="base"/}
+{block name="body"}
+
+<body>
+    <div class="form-group row">
+        <div class="col-md-12 text-right">
+            <a href="{:url('Login/logout')}">logout</a>
+        </div>
+    </div>
+    <a class="btn btn-sm btn-success" href="{:url('add')}">添加</a>
+    <form action="" method="get">
+        <input type="text" placeholder="Search..." name="keywords" value="{:input('get.keywords')}">
+        <button type="submit">搜索</button>
+    </form>
+    <table class="table">
+        <tr>
+            <th>序号</th>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>Email</th>
+            <th>操作</th>
+        </tr>
+        {volist name="users" key="key" id="user"}
+        <tr>
+            <td>{$key}</td>
+            <td>{$user->getData('name')}</td>
+            <td>{eq name="user->getData('sex')" value="0"}男{else/}女{/eq}</td>
+            <td>{$user->getData('email')}</td>
+            <td><a class="btn btn-sm btn-danger" href="{:url('delete?id=' . $user->getData('id'))}">删除</a>
+                <a class="btn btn-sm btn-primary" href="{:url('edit?id=' . $user->getData('id'))}">编辑</a></td>
+        </tr>
+        {/volist}
+    </table>
+</body>
+{$users->render()}
+{/block}

@@ -1,0 +1,14 @@
+{extend name="base"/}
+{block name="body"}
+<form action="{:url('update')}" method="post">
+    <input type="hidden" name="id" value="{$Klass->id}">
+    <label>name:</label><input type="text" name="name" value="{$Klass->name}"/>
+    <label>teacher:</label>
+    <select name="user_id" id="user">
+    {volist name="users" id="user"}
+        <option value="{$user->id}" {eq name="$user->id" value="$Klass->getData('user_id')"}selected="selected"{/eq}>{$user->name}</option>
+    {/volist}
+    </select>
+    <button type="submit">Submit</button>
+</form>
+{/block}
