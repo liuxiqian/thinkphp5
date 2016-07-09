@@ -9,7 +9,7 @@ class StudentController extends IndexController
     public function index()
     {
         // get datas
-        $students = Student::paginate();
+        $students = Student::paginate(3);
 
         // assign
         $this->assign('students', $students);

@@ -1,11 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>student</title>
-</head>
+{extend name="base"/}
+{block name="body"}
+
 <body>
-    <table action="{:url('insert')}" method="post">
+    <a class="btn btn-sm btn-success" href="{:url('add')}">添加</a>
+    <form action="" method="get">
+        <input type="text" placeholder="Search..." name="keywords" value="{:input('get.keywords')}">
+        <button type="submit">搜索</button>
+    </form>
+    <table class="table" action="{:url('insert')}" method="post">
         <tr>
             <th>index</th>
             <th>num</th>
@@ -17,18 +19,18 @@
             <th>createDate</th>
         </tr>
         {volist name="students" id="student" key="key"}
-            <tr>
-                <td>{$key}</td>
-                <td>{$student->num}</td>
-                <td>{$student->name}</td>
-                <td>{$student->sex}</td>
-                <td>{$student->email}</td>
-                <td>{$student->Klass->name}</td>
-                <td>{$student->Klass->User->name}</td>
-                <td>{$student->getData('create_time')}</td>
-            </tr>
+        <tr>
+            <td>{$key}</td>
+            <td>{$student->num}</td>
+            <td>{$student->name}</td>
+            <td>{$student->sex}</td>
+            <td>{$student->email}</td>
+            <td>{$student->Klass->name}</td>
+            <td>{$student->Klass->User->name}</td>
+            <td>{$student->create_time}</td>
+        </tr>
         {/volist}
     </table>
     {:$students->render()}
 </body>
-</html>
+{/block}

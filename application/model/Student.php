@@ -13,11 +13,15 @@ class Student extends Model
 
     public function getSexAttr($value)
     {
-        if ($value == 0)
+        $status = array('0'=>'男','1'=>'女');
+        $sex = $status[$value];
+        if (isset($sex))
         {
-            return 'male';
-        } else {
-            return 'female';
+            return $sex;
+        }
+        else
+        {
+            return $status[0];
         }
     }
 
