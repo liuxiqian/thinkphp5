@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:77:"G:\xampp\htdocs\thinkphp5\public/../application/index\view\student\index.html";i:1467294513;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:77:"G:\xampp\htdocs\thinkphp5\public/../application/index\view\student\index.html";i:1467378426;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
